@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+:root {
+  --bright-blue: hsl(220, 98%, 61%);
+  --checked-hover: linear-gradient (45deg, hsl(192, 100%, 67%), to hsl(280, 87%, 65%));
+  --background: var(--dark-background);
+  --background-to-do-list: var(--dark-background-to-do-list);
+  --checkbox-divider: var(--dark-checkbox-divider);
+  --text-task: var(--dark-text-task);
+  --text-complete: var(--dark-text-complete);
+  --text-placeholder: var(--dark-text-placeholder);
+  --text-tools: var(--dark-text-tools);
+  --dark-background: hsl(235, 21%, 11%);
+  --dark-background-to-do-list: hsl(235, 24%, 19%);
+  --dark-checkbox-divider: hsl(237, 14%, 26%);
+  --dark-text-task: hsl(234, 39%, 85%);
+  --dark-text-complete: hsl(233, 11%, 84%);
+  --dark-text-placeholder: hsl(234, 11%, 52%);
+  --dark-text-tools: hsl(233, 14%, 35%);
+  --light-background: hsl(0, 0%, 98%);
+  --light-background-to-do-list: hsl(0, 0%, 98%);
+  --light-checkbox-divider: hsl(236, 33%, 92%);
+  --light-text-task: hsl(235, 19%, 35%);
+  --light-text-complete: hsl(233, 11%, 84%);
+  --light-text-placeholder: hsl(236, 9%, 61%);
+  --light-text-tools: hsl(236, 9%, 61%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 62.5%;
+  font-weight: 400;
+}
+
+.switch {
+  --background: var(--light-background);
+  --background-to-do-list: var(--light-background-to-do-list);
+  --checkbox-divider: var(--light-checkbox-divider);
+  --text-task: var(--light-text-task);
+  --text-complete: var(--light-text-complete);
+  --text-placeholder: var(--light-text-placeholder);
+  --text-tools: var(--light-text-tools);
+}
+
+:root {
+  --bright-blue: hsl(220, 98%, 61%);
+  --checked-hover: linear-gradient (45deg, hsl(192, 100%, 67%), to hsl(280, 87%, 65%));
+  --background: var(--dark-background);
+  --background-to-do-list: var(--dark-background-to-do-list);
+  --checkbox-divider: var(--dark-checkbox-divider);
+  --text-task: var(--dark-text-task);
+  --text-complete: var(--dark-text-complete);
+  --text-placeholder: var(--dark-text-placeholder);
+  --text-tools: var(--dark-text-tools);
+  --dark-background: hsl(235, 21%, 11%);
+  --dark-background-to-do-list: hsl(235, 24%, 19%);
+  --dark-checkbox-divider: hsl(237, 14%, 26%);
+  --dark-text-task: hsl(234, 39%, 85%);
+  --dark-text-complete: hsl(233, 11%, 84%);
+  --dark-text-placeholder: hsl(234, 11%, 52%);
+  --dark-text-tools: hsl(233, 14%, 35%);
+  --light-background: hsl(0, 0%, 98%);
+  --light-background-to-do-list: hsl(0, 0%, 98%);
+  --light-checkbox-divider: hsl(236, 33%, 92%);
+  --light-text-task: hsl(235, 19%, 35%);
+  --light-text-complete: hsl(233, 11%, 84%);
+  --light-text-placeholder: hsl(236, 9%, 61%);
+  --light-text-tools: hsl(236, 9%, 61%);
+}
+
+body {
+  position: relative;
+  background: var(--background)/100vw 100vh;
+  padding: 4.8rem 2.4rem 6.9rem 2.4rem;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../images/bg-mobile-dark.jpg) no-repeat;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+body header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3.3rem;
+}
+body header .title {
+  color: white;
+  font-size: 2.7rem;
+  font-weight: 700;
+  letter-spacing: 0.37em;
+  text-transform: uppercase;
+}
+body header .thema__switch {
+  background-color: transparent;
+  border: none;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+body header .thema__switch .thema__icon {
+  width: 2rem;
+}
+body .to-do .to-do__new {
+  position: relative;
+  width: 100%;
+}
+body .to-do .to-do__new .to-do__button {
+  display: none;
+}
+body .to-do .to-do__new .to-do__button::before {
+  content: "";
+}
+body .to-do .to-do__new .to-do__input {
+  background-color: var(--background-to-do-list);
+  width: 100%;
+  padding: 1.8rem 5.2rem;
+  color: var(--text-task);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+body .to-do .to-do__new .to-do__input::-moz-placeholder {
+  color: var(--dark-text-placeholder);
+}
+body .to-do .to-do__new .to-do__input::placeholder {
+  color: var(--dark-text-placeholder);
+}/*# sourceMappingURL=style.css.map */
