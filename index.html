@@ -6,21 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <!-- Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="./assets/styles/style.css">
+
+    <title>To-do List</title>
+
+    <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
 </head>
 
 <body>
-<header>
+    <header>
+        <h1 class="title">Todo</h1>
+        <button class="thema__switch" id="switch">
+            <img src="./assets/images/icon-sun.svg" alt="Sun icon" class="thema__icon">
+        </button>
+    </header>
 
-</header>
+    <main class="to-do">
+        <section class="to-do__new">
+            <input type="checkbox" class="to-do__button" id="addTask">
+            <input type="text" class="to-do__input" id="input" placeholder="Create a new to-do...">
+        </section>
 
-<main>
+        <ul class="to-do__list">
+            <li>
+                <input type="checkbox" class="to-do__button" id="checkbox">
+                <span class="to-do__task" id="task"></span>
+                <button class="to-do__clear-task" id="clearTask">
+                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__clear-task--icon">
+                </button>
+                <hr />
+            </li>
+        </ul>
 
-</main>
+        <section class="to-do__tools">
+            <div class="tools__set-one">
+                <span class="tools__task-count" id="taskCount"></span>
+                <button class="tools__clear-complete" id="clearComplete">Clear Completed</button>
+            </div>
+            <div class="tools__set-two">
+                <button type="button" class="tools__filter" id="filterAll">All</button>
+                <button type="button" class="tools__filter" id="filterActive">Active</button>
+                <button type="button" class="tools__filter" id="filterCompleted">Completed</button>
+            </div>
+        </section>
 
-<footer>
-    
-</footer>
+    </main>
+
+    <footer>
+        <h3>Drag and drop to reorder list</h3>
+    </footer>
 </body>
 
 </html>
