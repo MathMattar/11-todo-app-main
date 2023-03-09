@@ -1,0 +1,106 @@
+@import "../abstract/root";
+
+body {
+    position: relative;
+    background: var(--background)/ 100vw 100vh;
+    padding: 4.8rem 2.4rem 6.9rem 2.4rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url(../images/bg-mobile-dark.jpg) no-repeat;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3.3rem;
+
+        .title {
+            @include text (white, $title, $w7, 0.37em);
+            text-transform: uppercase
+        }
+
+        .thema__switch {
+            background-color: transparent;
+            border: none;
+            width: fit-content;
+
+            .thema__icon {
+                width: 2rem;
+            }
+        }
+    }
+
+    .to-do {
+
+        .to-do__new {
+            position: relative;
+            width: 100%;
+
+            .to-do__button {
+                // position: absolute;
+                // top: 1.4rem;
+                // left: 2rem;
+                // appearance: none;
+                // width: 2rem;
+                // height: 2rem;
+                // border-radius: 50%;
+                // margin: unset;
+                // padding: unset;
+                display: none;
+
+                &::before {
+                    content: "";
+                }
+            }
+
+            .to-do__input {
+                background-color: var(--background-to-do-list);
+                width: 100%;
+                padding: 1.8rem 5.2rem;
+                @include text (var(--text-task), $task, $w4, -0.015em);
+
+                &::placeholder {
+                    color: var(--dark-text-placeholder);
+                }
+            }
+        }
+
+        .to-do__list {
+
+            .to-do__button {}
+
+            .to-do__task {}
+
+            .to-do__clear-task {
+
+                .to-do__clear-task--icon {}
+            }
+
+            hr {}
+        }
+
+        .to-do__tools {
+
+            .tools__set-one {
+
+                .tools__task-count {}
+
+                .tools__clear-complete {}
+            }
+
+            .tools__set-one {
+
+                .tools__filter {}
+            }
+
+        }
+
+    }
+}
