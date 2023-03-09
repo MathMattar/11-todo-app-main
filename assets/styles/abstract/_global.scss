@@ -1,0 +1,22 @@
+@import "./root";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $default-font;
+    font-size: 62.5%;
+    font-weight: $w4;
+}
+
+.switch {
+    --background: var(--light-background);
+    --background-to-do-list: var(--light-background-to-do-list);
+    --checkbox-divider: var(--light-checkbox-divider);
+    --text-task: var(--light-text-task);
+    --text-complete: var(--light-text-complete);
+    --text-placeholder: var(--light-text-placeholder);
+    --text-tools: var(--light-text-tools);
+}
+
