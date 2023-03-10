@@ -113,10 +113,16 @@ body .to-do .to-do__new {
   width: 100%;
 }
 body .to-do .to-do__new .to-do__button {
-  display: none;
-}
-body .to-do .to-do__new .to-do__button::before {
-  content: "";
+  position: absolute;
+  top: 1.4rem;
+  left: 2rem;
+  background-color: transparent;
+  border: 1px solid var(--light-checkbox-divider);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin: unset;
+  padding: unset;
 }
 body .to-do .to-do__new .to-do__input {
   background-color: var(--background-to-do-list);

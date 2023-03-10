@@ -44,20 +44,21 @@ body {
             width: 100%;
 
             .to-do__button {
-                // position: absolute;
-                // top: 1.4rem;
-                // left: 2rem;
+                position: absolute;
+                top: 1.4rem;
+                left: 2rem;
+                background-color: transparent;
+                border: 1px solid var(--light-checkbox-divider);
                 // appearance: none;
-                // width: 2rem;
-                // height: 2rem;
-                // border-radius: 50%;
-                // margin: unset;
-                // padding: unset;
-                display: none;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+                margin: unset;
+                padding: unset;
 
-                &::before {
-                    content: "";
-                }
+                // &::before {
+                //     content: "";
+                // }
             }
 
             .to-do__input {
