@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 :root {
   --bright-blue: hsl(220, 98%, 61%);
-  --checked-hover: linear-gradient (45deg, hsl(192, 100%, 67%), to hsl(280, 87%, 65%));
+  --checked-hover: 45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
   --background: var(--dark-background);
   --background-to-do-list: var(--dark-background-to-do-list);
   --checkbox-divider: var(--dark-checkbox-divider);
@@ -48,7 +48,7 @@ html {
 
 :root {
   --bright-blue: hsl(220, 98%, 61%);
-  --checked-hover: linear-gradient (45deg, hsl(192, 100%, 67%), to hsl(280, 87%, 65%));
+  --checked-hover: 45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
   --background: var(--dark-background);
   --background-to-do-list: var(--dark-background-to-do-list);
   --checkbox-divider: var(--dark-checkbox-divider);
@@ -116,13 +116,34 @@ body .to-do .to-do__new .to-do__button {
   position: absolute;
   top: 1.4rem;
   left: 2rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: transparent;
-  border: 1px solid var(--light-checkbox-divider);
   width: 2rem;
   height: 2rem;
+  border: 1px solid var(--light-checkbox-divider);
   border-radius: 50%;
   margin: unset;
   padding: unset;
+  outline: none;
+  cursor: pointer;
+}
+body .to-do .to-do__new .to-do__button:checked {
+  background: url(../images/icon-check.svg), linear-gradient(var(--checked-hover));
+  background-repeat: no-repeat;
+  background-position: center;
+}
+body .to-do .to-do__new .to-do__button::after {
+  content: "";
+  position: absolute;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: none;
+}
+body .to-do .to-do__new .to-do__button:checked::before {
+  display: none;
 }
 body .to-do .to-do__new .to-do__input {
   background-color: var(--background-to-do-list);
