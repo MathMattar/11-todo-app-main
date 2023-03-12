@@ -22,7 +22,7 @@ $w7: 700;
 :root {
     // Primary
     --bright-blue: hsl(220, 98%, 61%);
-    --checked-hover: linear-gradient (45deg, hsl(192, 100%, 67%), to hsl(280, 87%, 65%));
+    --checked-hover: 45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
 
     // Default
     --background: var(--dark-background);
