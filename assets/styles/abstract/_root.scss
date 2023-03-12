@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 
-@mixin text ($color, $size, $weight, $spacing) {
+@mixin text ($color, $size, $spacing) {
     color: $color;
     font-size: $size;
-    font-weight: $weight;
     letter-spacing: $spacing;
 }
 
@@ -27,7 +26,7 @@ $w7: 700;
     // Default
     --background: var(--dark-background);
     --background-to-do-list: var(--dark-background-to-do-list);
-    --checkbox-divider: var(--dark-checkbox-divider);
+    --border-divider: var(--dark-border-divider);
     --text-task: var(--dark-text-task);
     --text-complete: var(--dark-text-complete);
     --text-placeholder: var(--dark-text-placeholder);
@@ -36,7 +35,7 @@ $w7: 700;
     // Dark Mode
     --dark-background: hsl(235, 21%, 11%);
     --dark-background-to-do-list: hsl(235, 24%, 19%);
-    --dark-checkbox-divider: hsl(237, 14%, 26%);
+    --dark-border-divider: hsl(237, 14%, 26%);
     --dark-text-task: hsl(234, 39%, 85%);
     --dark-text-complete: hsl(233, 11%, 84%);
     --dark-text-placeholder: hsl(234, 11%, 52%);
@@ -45,7 +44,7 @@ $w7: 700;
     // Light Mode
     --light-background: hsl(0, 0%, 98%);
     --light-background-to-do-list: hsl(0, 0%, 98%);
-    --light-checkbox-divider: hsl(236, 33%, 92%);
+    --light-border-divider: hsl(236, 33%, 92%);
     --light-text-task: hsl(235, 19%, 35%);
     --light-text-complete: hsl(233, 11%, 84%);
     --light-text-placeholder: hsl(236, 9%, 61%);

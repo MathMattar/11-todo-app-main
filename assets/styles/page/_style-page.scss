@@ -22,7 +22,8 @@ body {
         margin-bottom: 3.3rem;
 
         .title {
-            @include text (white, $title, $w7, 0.37em);
+            @include text (white, $title, 0.37em);
+            font-weight: $w7;
             text-transform: uppercase
         }
 
@@ -51,7 +52,7 @@ body {
                 background-color: transparent;
                 width: 2rem;
                 height: 2rem;
-                border: 1px solid var(--light-checkbox-divider);
+                border: 1px solid var(--border-divider);
                 border-radius: 50%;
                 margin: unset;
                 padding: unset;
@@ -59,71 +60,116 @@ body {
                 cursor: pointer;
 
                 &:checked {
-                    // content: "";
-                    // position: absolute;
-                    // width: 2.2rem;
-                    // height: 2.2rem;
-                    // border-radius: 50%;
-                    background: url(../images/icon-check.svg), linear-gradient(var(--checked-hover));
-                    background-repeat: no-repeat;
-                    background-position: center;
-                }
-
-                &::after {
                     content: "";
                     position: absolute;
                     width: 2.2rem;
                     height: 2.2rem;
                     border-radius: 50%;
-                    display: none;
+                    background: url(../images/icon-check.svg), linear-gradient(var(--checked-hover));
+                    background-repeat: no-repeat;
+                    background-position: center;
                 }
 
-                &:checked::before{
-                    display: none;
-                }
             }
 
             .to-do__input {
+                @include text (var(--text-task), $task, -0.015em);
                 background-color: var(--background-to-do-list);
                 width: 100%;
+                outline: none;
+                border: none;
+                border-radius: .6rem;
+                box-shadow: 0 1.6rem 1.6rem 0 rgba(0, 0, 0, 0.25);
                 padding: 1.8rem 5.2rem;
-                @include text (var(--text-task), $task, $w4, -0.015em);
+                margin-bottom: 1.7rem;
 
                 &::placeholder {
                     color: var(--dark-text-placeholder);
                 }
             }
         }
+    }
 
-        .to-do__list {
+    .to-do__list {
+        background: var(--background-to-do-list);
+        width: 100%;
+        border-top-right-radius: .6rem;
+        border-top-left-radius: .6rem;
 
-            .to-do__button {}
+        .to-do__item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.6rem 2rem;
 
-            .to-do__task {}
+            .to-do__button {
+                appearance: none;
+                background-color: transparent;
+                min-width: 2rem;
+                min-height: 2rem;
+                max-width: 2rem;
+                max-height: 2rem;
+                border: 1px solid var(--border-divider);
+                border-radius: 50%;
+                margin: unset;
+                padding: unset;
+                outline: none;
+                cursor: pointer;
+
+                &:checked {
+                    content: "";
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50%;
+                    background: url(../images/icon-check.svg), linear-gradient(var(--checked-hover));
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+
+            .to-do__task {
+                @include text (var(--text-task), $task, -0.015em);
+                width: 100%;
+                padding: 0 1.2rem;
+            }
 
             .to-do__clear-task {
+                background-color: transparent;
+                border: none;
+                outline: none;
+                width: 1.2rem;
+                height: 1.2rem;
+                padding: unset;
+                cursor: pointer;
 
-                .to-do__clear-task--icon {}
+                .to-do__clear-task--icon {
+                    width: 1.2rem;
+                    height: 1.2rem;
+                }
             }
-
-            hr {}
         }
 
-        .to-do__tools {
+        hr {
+            width: 100%;
+            margin: unset;
+            border: 1px solid var(--border-divider);
+        }
+    }
 
-            .tools__set-one {
+    .to-do__tools {
 
-                .tools__task-count {}
+        .tools__set-one {
 
-                .tools__clear-complete {}
-            }
+            .tools__task-count {}
 
-            .tools__set-one {
+            .tools__clear-complete {}
+        }
 
-                .tools__filter {}
-            }
+        .tools__set-one {
 
+            .tools__filter {}
         }
 
     }
+
 }

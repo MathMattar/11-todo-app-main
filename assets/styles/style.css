@@ -5,21 +5,21 @@
   --checked-hover: 45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
   --background: var(--dark-background);
   --background-to-do-list: var(--dark-background-to-do-list);
-  --checkbox-divider: var(--dark-checkbox-divider);
+  --border-divider: var(--dark-border-divider);
   --text-task: var(--dark-text-task);
   --text-complete: var(--dark-text-complete);
   --text-placeholder: var(--dark-text-placeholder);
   --text-tools: var(--dark-text-tools);
   --dark-background: hsl(235, 21%, 11%);
   --dark-background-to-do-list: hsl(235, 24%, 19%);
-  --dark-checkbox-divider: hsl(237, 14%, 26%);
+  --dark-border-divider: hsl(237, 14%, 26%);
   --dark-text-task: hsl(234, 39%, 85%);
   --dark-text-complete: hsl(233, 11%, 84%);
   --dark-text-placeholder: hsl(234, 11%, 52%);
   --dark-text-tools: hsl(233, 14%, 35%);
   --light-background: hsl(0, 0%, 98%);
   --light-background-to-do-list: hsl(0, 0%, 98%);
-  --light-checkbox-divider: hsl(236, 33%, 92%);
+  --light-border-divider: hsl(236, 33%, 92%);
   --light-text-task: hsl(235, 19%, 35%);
   --light-text-complete: hsl(233, 11%, 84%);
   --light-text-placeholder: hsl(236, 9%, 61%);
@@ -51,21 +51,21 @@ html {
   --checked-hover: 45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
   --background: var(--dark-background);
   --background-to-do-list: var(--dark-background-to-do-list);
-  --checkbox-divider: var(--dark-checkbox-divider);
+  --border-divider: var(--dark-border-divider);
   --text-task: var(--dark-text-task);
   --text-complete: var(--dark-text-complete);
   --text-placeholder: var(--dark-text-placeholder);
   --text-tools: var(--dark-text-tools);
   --dark-background: hsl(235, 21%, 11%);
   --dark-background-to-do-list: hsl(235, 24%, 19%);
-  --dark-checkbox-divider: hsl(237, 14%, 26%);
+  --dark-border-divider: hsl(237, 14%, 26%);
   --dark-text-task: hsl(234, 39%, 85%);
   --dark-text-complete: hsl(233, 11%, 84%);
   --dark-text-placeholder: hsl(234, 11%, 52%);
   --dark-text-tools: hsl(233, 14%, 35%);
   --light-background: hsl(0, 0%, 98%);
   --light-background-to-do-list: hsl(0, 0%, 98%);
-  --light-checkbox-divider: hsl(236, 33%, 92%);
+  --light-border-divider: hsl(236, 33%, 92%);
   --light-text-task: hsl(235, 19%, 35%);
   --light-text-complete: hsl(233, 11%, 84%);
   --light-text-placeholder: hsl(236, 9%, 61%);
@@ -95,8 +95,8 @@ body header {
 body header .title {
   color: white;
   font-size: 2.7rem;
-  font-weight: 700;
   letter-spacing: 0.37em;
+  font-weight: 700;
   text-transform: uppercase;
 }
 body header .thema__switch {
@@ -122,7 +122,7 @@ body .to-do .to-do__new .to-do__button {
   background-color: transparent;
   width: 2rem;
   height: 2rem;
-  border: 1px solid var(--light-checkbox-divider);
+  border: 1px solid var(--border-divider);
   border-radius: 50%;
   margin: unset;
   padding: unset;
@@ -130,33 +130,93 @@ body .to-do .to-do__new .to-do__button {
   cursor: pointer;
 }
 body .to-do .to-do__new .to-do__button:checked {
-  background: url(../images/icon-check.svg), linear-gradient(var(--checked-hover));
-  background-repeat: no-repeat;
-  background-position: center;
-}
-body .to-do .to-do__new .to-do__button::after {
   content: "";
   position: absolute;
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 50%;
-  display: none;
-}
-body .to-do .to-do__new .to-do__button:checked::before {
-  display: none;
+  background: url(../images/icon-check.svg), linear-gradient(var(--checked-hover));
+  background-repeat: no-repeat;
+  background-position: center;
 }
 body .to-do .to-do__new .to-do__input {
-  background-color: var(--background-to-do-list);
-  width: 100%;
-  padding: 1.8rem 5.2rem;
   color: var(--text-task);
   font-size: 1.2rem;
-  font-weight: 400;
   letter-spacing: -0.015em;
+  background-color: var(--background-to-do-list);
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 0.6rem;
+  box-shadow: 0 1.6rem 1.6rem 0 rgba(0, 0, 0, 0.25);
+  padding: 1.8rem 5.2rem;
+  margin-bottom: 1.7rem;
 }
 body .to-do .to-do__new .to-do__input::-moz-placeholder {
   color: var(--dark-text-placeholder);
 }
 body .to-do .to-do__new .to-do__input::placeholder {
   color: var(--dark-text-placeholder);
+}
+body .to-do__list {
+  background: var(--background-to-do-list);
+  width: 100%;
+  border-top-right-radius: 0.6rem;
+  border-top-left-radius: 0.6rem;
+}
+body .to-do__list .to-do__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 2rem;
+}
+body .to-do__list .to-do__item .to-do__button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  min-width: 2rem;
+  min-height: 2rem;
+  max-width: 2rem;
+  max-height: 2rem;
+  border: 1px solid var(--border-divider);
+  border-radius: 50%;
+  margin: unset;
+  padding: unset;
+  outline: none;
+  cursor: pointer;
+}
+body .to-do__list .to-do__item .to-do__button:checked {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: url(../images/icon-check.svg), linear-gradient(var(--checked-hover));
+  background-repeat: no-repeat;
+  background-position: center;
+}
+body .to-do__list .to-do__item .to-do__task {
+  color: var(--text-task);
+  font-size: 1.2rem;
+  letter-spacing: -0.015em;
+  width: 100%;
+  padding: 0 1.2rem;
+}
+body .to-do__list .to-do__item .to-do__clear-task {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: unset;
+  cursor: pointer;
+}
+body .to-do__list .to-do__item .to-do__clear-task .to-do__clear-task--icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+body .to-do__list hr {
+  width: 100%;
+  margin: unset;
+  border: 1px solid var(--border-divider);
 }/*# sourceMappingURL=style.css.map */
