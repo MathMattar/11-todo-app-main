@@ -2,8 +2,14 @@
 
 body {
     position: relative;
-    background: var(--background)/ 100vw 100vh;
+    background: var(--background);
+    width: 100vw;
+    height: 100vh;
     padding: 4.8rem 2.4rem 6.9rem 2.4rem;
+
+    &.light-mode::before {
+        background: url(../images/bg-mobile-light.jpg) no-repeat;
+    }
 
     &::before {
         content: "";
@@ -44,7 +50,7 @@ body {
             position: relative;
             width: 100%;
 
-            .to-do__button {
+            .to-do__task-send {
                 position: absolute;
                 top: 1.4rem;
                 left: 2rem;
@@ -52,8 +58,7 @@ body {
                 background-color: transparent;
                 width: 2rem;
                 height: 2rem;
-                border: 1px solid var(--
-                border-divider);
+                border: 1px solid var(--border-divider);
                 border-radius: 50%;
                 margin: unset;
                 padding: unset;
@@ -96,6 +101,7 @@ body {
         width: 100%;
         border-top-right-radius: .6rem;
         border-top-left-radius: .6rem;
+        box-shadow: 0 .8rem 2.4rem .4rem hsla(0, 0%, 0%, 0.1);
 
         .to-do__item {
             display: flex;
@@ -126,15 +132,33 @@ body {
                     background-repeat: no-repeat;
                     background-position: center;
                 }
+
+                &:not(:checked):hover {
+                    border: 2px solid transparent;
+                    background-image: linear-gradient(var(--background-to-do-list), var(--background-to-do-list)),
+                        radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+                    background-origin: border-box;
+                    background-clip: content-box, border-box;
+                    display: inline-block;
+                }
             }
 
             .to-do__task {
                 @include text (var(--text-task), $task, -0.015em);
                 width: 100%;
                 padding: 0 1.2rem;
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--text-hover);
+                }
+
+                &.complete {
+                    text-decoration: line-through;
+                }
             }
 
-            .to-do__clear-task {
+            .to-do__delete {
                 background-color: transparent;
                 border: none;
                 outline: none;
@@ -143,7 +167,7 @@ body {
                 padding: unset;
                 cursor: pointer;
 
-                .to-do__clear-task--icon {
+                .to-do__delete--icon {
                     width: 1.2rem;
                     height: 1.2rem;
                 }
@@ -159,18 +183,74 @@ body {
 
     .to-do__tools {
 
-        .tools__set-one {
-
-            .tools__task-count {}
-
-            .tools__clear-complete {}
-        }
 
         .tools__set-one {
+            display: flex;
+            justify-content: space-between;
+            background-color: var(--background-to-do-list);
+            border: none;
+            border-bottom-left-radius: .6rem;
+            border-bottom-right-radius: .6rem;
+            box-shadow: 0 2.4rem 2.4rem .4rem hsla(0, 0%, 0%, 0.1);
+            padding: 1.8rem 2rem 2rem;
+            margin-bottom: 1.6rem;
 
-            .tools__filter {}
+            .tools__task-count {
+                @include text (var(--text-tools), $task, -0.015em);
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--text-hover);
+                }
+            }
+
+            .tools__clear-complete {
+                background-color: transparent;
+                border: none;
+                @include text (var(--text-tools), $task, -0.015em);
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--text-hover);
+                }
+            }
         }
 
+        .tools__set-two {
+            display: flex;
+            justify-content: center;
+            background-color: var(--background-to-do-list);
+            border: none;
+            border-radius: .6rem;
+            padding: 1.8rem 0;
+            box-shadow: 0 .4rem 2.4rem .4rem hsla(0, 0%, 0%, 0.1);
+
+            .tools__filter {
+                background-color: transparent;
+                border: none;
+                @include text (var(--text-tools), $filter, -0.01em);
+                font-weight: $w7;
+                cursor: pointer;
+
+                &:focus {
+                    color: var(--bright-blue);
+                }
+
+                &:hover {
+                    color: var(--text-hover)
+                }
+            }
+        }
+
+    }
+
+    footer {
+
+        h3 {
+            @include text (var(--text-tools), $filter, -0.0175em);
+            text-align: center;
+            margin: 4.3rem auto 6.9rem;
+        }
     }
 
 }

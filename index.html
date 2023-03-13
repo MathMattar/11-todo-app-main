@@ -23,22 +23,22 @@
     <header>
         <h1 class="title">Todo</h1>
         <button class="thema__switch" id="switch">
-            <img src="./assets/images/icon-sun.svg" alt="Sun icon" class="thema__icon">
+            <img src="./assets/images/icon-sun.svg" alt="Sun icon" class="hema__icon" id="iconThema">
         </button>
     </header>
 
     <main class="to-do">
-        <section class="to-do__new">
-            <input type="checkbox" class="to-do__button" id="addTask">
-            <input type="text" class="to-do__input" id="input" placeholder="Create a new to-do...">
-        </section>
+        <form class="to-do__new" id="formTask">
+            <button type="submit" class="to-do__task-send" id="addTask"></button>
+            <input type="text" class="to-do__input" id="newTask" placeholder="Create a new to-do...">
+        </form>
 
-        <ul class="to-do__list">
-            <li class="to-do__item">
-                <input type="checkbox" class="to-do__button" id="checkbox">
+        <ul class="to-do__list" id="toDoList">
+            <!-- <li class="to-do__item">
+                <input type="checkbox" class="to-do__button" id="complete">
                 <span class="to-do__task" id="task">Jog around the park 3x</span>
-                <button type="button" class="to-do__clear-task" id="clearTask">
-                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__clear-task--icon">
+                <button type="button" class="to-do__delete" id="exclude">
+                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__delete--icon">
                 </button>
             </li>
             <hr>
@@ -46,8 +46,8 @@
             <li class="to-do__item">
                 <input type="checkbox" class="to-do__button" id="checkbox">
                 <span class="to-do__task" id="task">10 minutes meditation</span>
-                <button class="to-do__clear-task" id="clearTask">
-                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__clear-task--icon">
+                <button class="to-do__delete" id="clearTask">
+                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__delete--icon">
                 </button>
             </li>
             <hr>
@@ -56,8 +56,8 @@
             <li class="to-do__item">
                 <input type="checkbox" class="to-do__button" id="checkbox">
                 <span class="to-do__task" id="task">Read for 1 hour</span>
-                <button class="to-do__clear-task" id="clearTask">
-                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__clear-task--icon">
+                <button class="to-do__delete" id="clearTask">
+                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__delete--icon">
                 </button>
             </li>
             <hr>
@@ -66,8 +66,8 @@
             <li class="to-do__item">
                 <input type="checkbox" class="to-do__button" id="checkbox">
                 <span class="to-do__task" id="task">Pick up groceries</span>
-                <button class="to-do__clear-task" id="clearTask">
-                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__clear-task--icon">
+                <button class="to-do__delete" id="clearTask">
+                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__delete--icon">
                 </button>
             </li>
             <hr>
@@ -76,30 +76,34 @@
             <li class="to-do__item">
                 <input type="checkbox" class="to-do__button" id="checkbox">
                 <span class="to-do__task" id="task">Complete Todo App on Frontend Mentor</span>
-                <button class="to-do__clear-task" id="clearTask">
-                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__clear-task--icon">
+                <button class="to-do__delete" id="clearTask">
+                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__delete--icon">
                 </button>
             </li>
-            <hr>
+            <hr> -->
         </ul>
 
-            <section class="to-do__tools">
-                <div class="tools__set-one">
-                    <span class="tools__task-count" id="taskCount">Contagem</span>
-                    <button class="tools__clear-complete" id="clearComplete">Clear Completed</button>
-                </div>
-                <div class="tools__set-two">
-                    <button type="button" class="tools__filter" id="filterAll">All</button>
-                    <button type="button" class="tools__filter" id="filterActive">Active</button>
-                    <button type="button" class="tools__filter" id="filterCompleted">Completed</button>
-                </div>
-            </section>
+        <section class="to-do__tools">
+            <div class="tools__set-one">
+                <span class="tools__task-count" id="taskCount">Contagem</span>
+                <button class="tools__clear-complete" id="clearComplete">Clear Completed</button>
+            </div>
+            <div class="tools__set-two">
+                <button type="button" class="tools__filter" id="filterAll">All</button>
+                <button type="button" class="tools__filter" id="filterActive">Active</button>
+                <button type="button" class="tools__filter" id="filterCompleted">Completed</button>
+            </div>
+        </section>
 
     </main>
 
     <footer>
         <h3>Drag and drop to reorder list</h3>
     </footer>
+
+    <script src="./assets/js/switchThema.js"></script>
+    <script src="./assets/js/toDoList.js"></script>
+
 </body>
 
 </html>

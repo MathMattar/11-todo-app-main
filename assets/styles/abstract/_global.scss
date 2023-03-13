@@ -13,10 +13,14 @@ html {
 .switch {
     --background: var(--light-background);
     --background-to-do-list: var(--light-background-to-do-list);
-    --checkbox-divider: var(--light-checkbox-divider);
+    --border-divider: var(--light-border-divider);
     --text-task: var(--light-text-task);
+    --text-hover: var(--light-text-hover);
     --text-complete: var(--light-text-complete);
     --text-placeholder: var(--light-text-placeholder);
     --text-tools: var(--light-text-tools);
 }
 
+.complete {
+    text-decoration: line-through;
+}

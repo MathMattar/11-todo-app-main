@@ -12,6 +12,7 @@ $default-font: 'Josefin Sans', sans-serif;
 // Font-size
 $title: 2.7rem;
 $task: 1.2rem;
+$filter: 1.4rem;
 
 // Font-weights
 $w4: 400;
@@ -28,6 +29,7 @@ $w7: 700;
     --background-to-do-list: var(--dark-background-to-do-list);
     --border-divider: var(--dark-border-divider);
     --text-task: var(--dark-text-task);
+    --text-hover: var(--dark-text-hover);
     --text-complete: var(--dark-text-complete);
     --text-placeholder: var(--dark-text-placeholder);
     --text-tools: var(--dark-text-tools);
@@ -37,9 +39,10 @@ $w7: 700;
     --dark-background-to-do-list: hsl(235, 24%, 19%);
     --dark-border-divider: hsl(237, 14%, 26%);
     --dark-text-task: hsl(234, 39%, 85%);
+    --dark-text-hover: hsl(236, 33%, 92%);
     --dark-text-complete: hsl(233, 11%, 84%);
     --dark-text-placeholder: hsl(234, 11%, 52%);
-    --dark-text-tools: hsl(233, 14%, 35%);
+    --dark-text-tools: hsl(234, 11%, 52%);
 
     // Light Mode
     --light-background: hsl(0, 0%, 98%);

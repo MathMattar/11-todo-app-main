@@ -7,6 +7,7 @@
   --background-to-do-list: var(--dark-background-to-do-list);
   --border-divider: var(--dark-border-divider);
   --text-task: var(--dark-text-task);
+  --text-hover: var(--dark-text-hover);
   --text-complete: var(--dark-text-complete);
   --text-placeholder: var(--dark-text-placeholder);
   --text-tools: var(--dark-text-tools);
@@ -14,9 +15,10 @@
   --dark-background-to-do-list: hsl(235, 24%, 19%);
   --dark-border-divider: hsl(237, 14%, 26%);
   --dark-text-task: hsl(234, 39%, 85%);
+  --dark-text-hover: hsl(236, 33%, 92%);
   --dark-text-complete: hsl(233, 11%, 84%);
   --dark-text-placeholder: hsl(234, 11%, 52%);
-  --dark-text-tools: hsl(233, 14%, 35%);
+  --dark-text-tools: hsl(234, 11%, 52%);
   --light-background: hsl(0, 0%, 98%);
   --light-background-to-do-list: hsl(0, 0%, 98%);
   --light-border-divider: hsl(236, 33%, 92%);
@@ -39,11 +41,16 @@ html {
 .switch {
   --background: var(--light-background);
   --background-to-do-list: var(--light-background-to-do-list);
-  --checkbox-divider: var(--light-checkbox-divider);
+  --border-divider: var(--light-border-divider);
   --text-task: var(--light-text-task);
+  --text-hover: var(--light-text-hover);
   --text-complete: var(--light-text-complete);
   --text-placeholder: var(--light-text-placeholder);
   --text-tools: var(--light-text-tools);
+}
+
+.complete {
+  text-decoration: line-through;
 }
 
 :root {
@@ -53,6 +60,7 @@ html {
   --background-to-do-list: var(--dark-background-to-do-list);
   --border-divider: var(--dark-border-divider);
   --text-task: var(--dark-text-task);
+  --text-hover: var(--dark-text-hover);
   --text-complete: var(--dark-text-complete);
   --text-placeholder: var(--dark-text-placeholder);
   --text-tools: var(--dark-text-tools);
@@ -60,9 +68,10 @@ html {
   --dark-background-to-do-list: hsl(235, 24%, 19%);
   --dark-border-divider: hsl(237, 14%, 26%);
   --dark-text-task: hsl(234, 39%, 85%);
+  --dark-text-hover: hsl(236, 33%, 92%);
   --dark-text-complete: hsl(233, 11%, 84%);
   --dark-text-placeholder: hsl(234, 11%, 52%);
-  --dark-text-tools: hsl(233, 14%, 35%);
+  --dark-text-tools: hsl(234, 11%, 52%);
   --light-background: hsl(0, 0%, 98%);
   --light-background-to-do-list: hsl(0, 0%, 98%);
   --light-border-divider: hsl(236, 33%, 92%);
@@ -74,8 +83,13 @@ html {
 
 body {
   position: relative;
-  background: var(--background)/100vw 100vh;
+  background: var(--background);
+  width: 100vw;
+  height: 100vh;
   padding: 4.8rem 2.4rem 6.9rem 2.4rem;
+}
+body.light-mode::before {
+  background: url(../images/bg-mobile-light.jpg) no-repeat;
 }
 body::before {
   content: "";
@@ -112,7 +126,7 @@ body .to-do .to-do__new {
   position: relative;
   width: 100%;
 }
-body .to-do .to-do__new .to-do__button {
+body .to-do .to-do__new .to-do__task-send {
   position: absolute;
   top: 1.4rem;
   left: 2rem;
@@ -122,14 +136,14 @@ body .to-do .to-do__new .to-do__button {
   background-color: transparent;
   width: 2rem;
   height: 2rem;
-  border: 1px solid var(-- border-divider);
+  border: 1px solid var(--border-divider);
   border-radius: 50%;
   margin: unset;
   padding: unset;
   outline: none;
   cursor: pointer;
 }
-body .to-do .to-do__new .to-do__button:checked {
+body .to-do .to-do__new .to-do__task-send:checked {
   content: "";
   position: absolute;
   width: 2.2rem;
@@ -163,6 +177,7 @@ body .to-do__list {
   width: 100%;
   border-top-right-radius: 0.6rem;
   border-top-left-radius: 0.6rem;
+  box-shadow: 0 0.8rem 2.4rem 0.4rem hsla(0, 0%, 0%, 0.1);
 }
 body .to-do__list .to-do__item {
   display: flex;
@@ -195,14 +210,28 @@ body .to-do__list .to-do__item .to-do__button:checked {
   background-repeat: no-repeat;
   background-position: center;
 }
+body .to-do__list .to-do__item .to-do__button:not(:checked):hover {
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--background-to-do-list), var(--background-to-do-list)), radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  display: inline-block;
+}
 body .to-do__list .to-do__item .to-do__task {
   color: var(--text-task);
   font-size: 1.2rem;
   letter-spacing: -0.015em;
   width: 100%;
   padding: 0 1.2rem;
+  cursor: pointer;
 }
-body .to-do__list .to-do__item .to-do__clear-task {
+body .to-do__list .to-do__item .to-do__task:hover {
+  color: var(--text-hover);
+}
+body .to-do__list .to-do__item .to-do__task.complete {
+  text-decoration: line-through;
+}
+body .to-do__list .to-do__item .to-do__delete {
   background-color: transparent;
   border: none;
   outline: none;
@@ -211,7 +240,7 @@ body .to-do__list .to-do__item .to-do__clear-task {
   padding: unset;
   cursor: pointer;
 }
-body .to-do__list .to-do__item .to-do__clear-task .to-do__clear-task--icon {
+body .to-do__list .to-do__item .to-do__delete .to-do__delete--icon {
   width: 1.2rem;
   height: 1.2rem;
 }
@@ -219,4 +248,66 @@ body .to-do__list hr {
   width: 100%;
   margin: unset;
   border: 1px solid var(--border-divider);
+}
+body .to-do__tools .tools__set-one {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background-to-do-list);
+  border: none;
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+  box-shadow: 0 2.4rem 2.4rem 0.4rem hsla(0, 0%, 0%, 0.1);
+  padding: 1.8rem 2rem 2rem;
+  margin-bottom: 1.6rem;
+}
+body .to-do__tools .tools__set-one .tools__task-count {
+  color: var(--text-tools);
+  font-size: 1.2rem;
+  letter-spacing: -0.015em;
+  cursor: pointer;
+}
+body .to-do__tools .tools__set-one .tools__task-count:hover {
+  color: var(--text-hover);
+}
+body .to-do__tools .tools__set-one .tools__clear-complete {
+  background-color: transparent;
+  border: none;
+  color: var(--text-tools);
+  font-size: 1.2rem;
+  letter-spacing: -0.015em;
+  cursor: pointer;
+}
+body .to-do__tools .tools__set-one .tools__clear-complete:hover {
+  color: var(--text-hover);
+}
+body .to-do__tools .tools__set-two {
+  display: flex;
+  justify-content: center;
+  background-color: var(--background-to-do-list);
+  border: none;
+  border-radius: 0.6rem;
+  padding: 1.8rem 0;
+  box-shadow: 0 0.4rem 2.4rem 0.4rem hsla(0, 0%, 0%, 0.1);
+}
+body .to-do__tools .tools__set-two .tools__filter {
+  background-color: transparent;
+  border: none;
+  color: var(--text-tools);
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  cursor: pointer;
+}
+body .to-do__tools .tools__set-two .tools__filter:focus {
+  color: var(--bright-blue);
+}
+body .to-do__tools .tools__set-two .tools__filter:hover {
+  color: var(--text-hover);
+}
+body footer h3 {
+  color: var(--text-tools);
+  font-size: 1.4rem;
+  letter-spacing: -0.0175em;
+  text-align: center;
+  margin: 4.3rem auto 6.9rem;
 }/*# sourceMappingURL=style.css.map */
