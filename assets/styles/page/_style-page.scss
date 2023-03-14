@@ -141,6 +141,11 @@ body {
                     background-clip: content-box, border-box;
                     display: inline-block;
                 }
+
+                &:checked+.to-do__task {
+                    text-decoration: line-through;
+                    color: var(--text-complete);
+                }
             }
 
             .to-do__task {
