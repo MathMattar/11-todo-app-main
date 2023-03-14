@@ -1,4 +1,5 @@
 export default function createTask() {
+  // Criar a nova <li> que representa a tarefa
   const insertTask = document.getElementById("insertTask").value;
   const list = document.getElementById("toDoList");
 
@@ -26,11 +27,18 @@ export default function createTask() {
   list.appendChild(toDoItem);
   list.appendChild(hr);
 
-  // adiciona a nova tarefa à matriz de tarefas
+  // Adiciona a nova tarefa à matriz
   const toDo = { item: insertTask, completed: false };
   toDoList.push(toDo);
+
+  // Remove uma tarefa da matriz
+  toDoDelete.addEventListener("click", () => {
+    list.removeChild(toDoItem);
+    list.removeChild(hr);
+  });
 }
 
+// Adicionar as tarefas vindas do HTML à matriz
 const toDoItem = document.querySelectorAll(".to-do__item");
 
 const toDoList = [];
@@ -42,4 +50,16 @@ toDoItem.forEach((item) => {
   };
 
   toDoList.push(toDo);
+});
+
+//Remover as tarefas vindas do HTML da matriz
+const deleteBtns = document.querySelectorAll(".to-do__delete");
+
+deleteBtns.forEach((deleteBtn) => {
+  deleteBtn.addEventListener("click", (e) => {
+    const listItem = e.target.closest(".to-do__item");
+    const hr = listItem.nextElementSibling;
+    listItem.remove();
+    hr.remove();
+  });
 });
