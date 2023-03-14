@@ -16,16 +16,16 @@ formTask.addEventListener("submit", (e) => {
   }
 });
 
-// Adiciona data-attributes aos elementos nativos do HTML
+// Adiciona data-attributes aos elementos nativos do HTML para identificação
 const toDoItem = document.querySelectorAll(".to-do__item");
 
 let count = 0;
 
 toDoItem.forEach((item) => {
-  item.setAttribute("data-value", count);
+  item.setAttribute("data-value", count); // Adiciona data-attribute para identificação
   count++;
 
-  // Adiciona os elementos nativos do HTML à matriz toDoList
+  // Adiciona as tarefas da lista HTML na matriz toDoList
   const toDo = {
     item: item.querySelector(".to-do__task").textContent,
     completed: item.querySelector(".to-do__complete").checked,
@@ -34,9 +34,10 @@ toDoItem.forEach((item) => {
   toDoList.push(toDo);
 });
 
-// Remove os elementos nativos do HTML da matriz toDoList
+// Remove os elementos nativos do HTML da matriz toDoList quando excluídos pelo usuário
 const deleteBtns = document.querySelectorAll(".to-do__delete");
 
+// Seleciona o item e a divisória correspondente ao botão de exclusão clicado. Encontra o índice da tarefa a ser excluída na matriz toDoList
 deleteBtns.forEach((deleteBtn) => {
   deleteBtn.addEventListener("click", (e) => {
     const listItem = e.target.closest(".to-do__item");
@@ -45,13 +46,14 @@ deleteBtns.forEach((deleteBtn) => {
       (task) => task.item === listItem.querySelector(".to-do__task").textContent
     );
 
+    // Verifica se a tarefa foi encontrada na matriz. Remove a tarefa, o item e a divisória, também, atualiza a contagem.
     if (index !== -1) {
       toDoList.splice(index, 1);
       listItem.remove();
       hr.remove();
-      updateTaskCount(); // Remove os elementos excluidos da contagem de tarefas
+      updateTaskCount();
 
-      // Adiciona o novo data-attributes aos elementos restantes após uma exclusão
+      // Atualiza os data-attributes dos itens restantes após a exclusão
       const remainingTasks = document.querySelectorAll(".to-do__item");
       let count = 0;
 
@@ -63,9 +65,10 @@ deleteBtns.forEach((deleteBtn) => {
   });
 });
 
-// Modifica o estado do checkbox e atuliza a contagem de elementos nativos do HTML
+// Modifica o estado do checkbox de uma tarefa e atualiza a contagem de tarefas
 const completeInputs = document.querySelectorAll(".to-do__complete");
 
+// Seleciona o item da lista correspondente ao checkbox clicado e encontra o índice da tarefa na matriz toDoList
 completeInputs.forEach((input) => {
   input.addEventListener("change", () => {
     const listItem = input.closest(".to-do__item");
@@ -73,9 +76,10 @@ completeInputs.forEach((input) => {
       (task) => task.item === listItem.querySelector(".to-do__task").textContent
     );
 
+    //Verifica se a tarefa foi encontrada na matriz, modifica o estado de acordo com o valor do checkbox e atualiza a comtagem de elementos
     if (index !== -1) {
       toDoList[index].completed = input.checked;
-      updateTaskCount(); //Modifica o estado e atualiza a contagem
+      updateTaskCount();
     }
   });
 });
