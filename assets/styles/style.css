@@ -49,10 +49,6 @@ html {
   --text-tools: var(--light-text-tools);
 }
 
-.complete {
-  text-decoration: line-through;
-}
-
 :root {
   --bright-blue: hsl(220, 98%, 61%);
   --checked-hover: 45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%);
@@ -122,11 +118,11 @@ body header .thema__switch {
 body header .thema__switch .thema__icon {
   width: 2rem;
 }
-body .to-do .to-do__new {
+body .to-do .to-do__form {
   position: relative;
   width: 100%;
 }
-body .to-do .to-do__new .to-do__task-send {
+body .to-do .to-do__form .to-do__task-send {
   position: absolute;
   top: 1.4rem;
   left: 2rem;
@@ -143,7 +139,7 @@ body .to-do .to-do__new .to-do__task-send {
   outline: none;
   cursor: pointer;
 }
-body .to-do .to-do__new .to-do__task-send:checked {
+body .to-do .to-do__form .to-do__task-send:checked {
   content: "";
   position: absolute;
   width: 2.2rem;
@@ -153,7 +149,7 @@ body .to-do .to-do__new .to-do__task-send:checked {
   background-repeat: no-repeat;
   background-position: center;
 }
-body .to-do .to-do__new .to-do__input {
+body .to-do .to-do__form .to-do__input {
   color: var(--text-task);
   font-size: 1.2rem;
   letter-spacing: -0.015em;
@@ -166,10 +162,10 @@ body .to-do .to-do__new .to-do__input {
   padding: 1.8rem 5.2rem;
   margin-bottom: 1.7rem;
 }
-body .to-do .to-do__new .to-do__input::-moz-placeholder {
+body .to-do .to-do__form .to-do__input::-moz-placeholder {
   color: var(--dark-text-placeholder);
 }
-body .to-do .to-do__new .to-do__input::placeholder {
+body .to-do .to-do__form .to-do__input::placeholder {
   color: var(--dark-text-placeholder);
 }
 body .to-do__list {
@@ -185,7 +181,7 @@ body .to-do__list .to-do__item {
   align-items: center;
   padding: 1.6rem 2rem;
 }
-body .to-do__list .to-do__item .to-do__button {
+body .to-do__list .to-do__item .to-do__complete {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -201,7 +197,7 @@ body .to-do__list .to-do__item .to-do__button {
   outline: none;
   cursor: pointer;
 }
-body .to-do__list .to-do__item .to-do__button:checked {
+body .to-do__list .to-do__item .to-do__complete:checked {
   content: "";
   width: 2rem;
   height: 2rem;
@@ -210,7 +206,7 @@ body .to-do__list .to-do__item .to-do__button:checked {
   background-repeat: no-repeat;
   background-position: center;
 }
-body .to-do__list .to-do__item .to-do__button:not(:checked):hover {
+body .to-do__list .to-do__item .to-do__complete:not(:checked):hover {
   border: 2px solid transparent;
   background-image: linear-gradient(var(--background-to-do-list), var(--background-to-do-list)), radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   background-origin: border-box;
