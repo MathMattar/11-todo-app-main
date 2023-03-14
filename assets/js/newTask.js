@@ -1,5 +1,5 @@
-export default function createTask() {
-  // Criar a nova <li> que representa a tarefa
+// Create the <li> and all child tags to add a new task
+export function createTask() {
   const insertTask = document.getElementById("insertTask").value;
   const list = document.getElementById("toDoList");
 
@@ -27,39 +27,37 @@ export default function createTask() {
   list.appendChild(toDoItem);
   list.appendChild(hr);
 
-  // Adiciona a nova tarefa à matriz
+  // Adds the new task to the array
   const toDo = { item: insertTask, completed: false };
   toDoList.push(toDo);
 
-  // Remove uma tarefa da matriz
+  // Removes the new task from the array
   toDoDelete.addEventListener("click", () => {
     list.removeChild(toDoItem);
     list.removeChild(hr);
+    toDoList.splice(toDoList.indexOf(toDo), 1);
+
+    updateTaskCount(); // Update the count
   });
+
+  // Change the state of a task and update the count
+  toDoComplete.addEventListener("change", () => {
+    const index = parseInt(toDoItem.getAttribute("data-value"));
+    toDoList[index].completed = toDoComplete.checked;
+    updateTaskCount(); // Update the count
+  });
+
+  updateTaskCount(); // Update the count
 }
 
-// Adicionar as tarefas vindas do HTML à matriz
-const toDoItem = document.querySelectorAll(".to-do__item");
+export const toDoList = [];
 
-const toDoList = [];
+// Counting the tasks
+export function updateTaskCount() {
+  const taskCount = toDoList.length;
+  const completedCount = toDoList.filter((task) => task.completed).length;
+  const remainingCount = taskCount - completedCount;
+  const taskCountElement = document.getElementById("taskCount");
 
-toDoItem.forEach((item) => {
-  const toDo = {
-    item: item.querySelector(".to-do__task").textContent,
-    completed: item.querySelector(".to-do__complete").checked,
-  };
-
-  toDoList.push(toDo);
-});
-
-//Remover as tarefas vindas do HTML da matriz
-const deleteBtns = document.querySelectorAll(".to-do__delete");
-
-deleteBtns.forEach((deleteBtn) => {
-  deleteBtn.addEventListener("click", (e) => {
-    const listItem = e.target.closest(".to-do__item");
-    const hr = listItem.nextElementSibling;
-    listItem.remove();
-    hr.remove();
-  });
-});
+  taskCountElement.textContent = `${remainingCount} tasks left`;
+}
