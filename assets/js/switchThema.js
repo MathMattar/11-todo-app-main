@@ -2,9 +2,8 @@ const switchButton = document.getElementById("switch");
 const iconThema = document.getElementById("iconThema");
 
 switchButton.addEventListener("click", () => {
-
   document.body.classList.toggle("switch");
-  document.body.classList.toggle("light-mode")
+  document.body.classList.toggle("light-mode");
 
   if (document.body.classList.contains("switch")) {
     iconThema.src = "./assets/images/icon-moon.svg";
