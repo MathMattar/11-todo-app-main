@@ -143,8 +143,8 @@ body {
                 }
 
                 &:checked+.to-do__task {
-                    text-decoration: line-through;
                     color: var(--text-complete);
+                    text-decoration: line-through;
                 }
             }
 
@@ -202,11 +202,7 @@ body {
 
             .tools__task-count {
                 @include text (var(--text-tools), $task, -0.015em);
-                cursor: pointer;
-
-                &:hover {
-                    color: var(--text-hover);
-                }
+                cursor: default;
             }
 
             .tools__clear-complete {

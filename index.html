@@ -28,7 +28,7 @@
     </header>
 
     <main class="to-do">
-        <form class="to-do__form" id="formTask">
+        <form class="to-do__form" id="formTask" autocomplete="off">
             <button type="submit" class="to-do__task-send" id="sendTask"></button>
             <input type="text" class="to-do__input" id="insertTask" placeholder="Create a new to-do...">
         </form>
@@ -94,7 +94,7 @@
 
         <section class="to-do__tools">
             <div class="tools__set-one">
-                <span class="tools__task-count" id="taskCount">Contagem</span>
+                <span class="tools__task-count" id="taskCount"></span>
                 <button class="tools__clear-complete" id="clearComplete">Clear Completed</button>
             </div>
             <div class="tools__set-two">

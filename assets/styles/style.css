@@ -214,8 +214,8 @@ body .to-do__list .to-do__item .to-do__complete:not(:checked):hover {
   display: inline-block;
 }
 body .to-do__list .to-do__item .to-do__complete:checked + .to-do__task {
-  text-decoration: line-through;
   color: var(--text-complete);
+  text-decoration: line-through;
 }
 body .to-do__list .to-do__item .to-do__task {
   color: var(--text-task);
@@ -264,10 +264,7 @@ body .to-do__tools .tools__set-one .tools__task-count {
   color: var(--text-tools);
   font-size: 1.2rem;
   letter-spacing: -0.015em;
-  cursor: pointer;
-}
-body .to-do__tools .tools__set-one .tools__task-count:hover {
-  color: var(--text-hover);
+  cursor: default;
 }
 body .to-do__tools .tools__set-one .tools__clear-complete {
   background-color: transparent;
