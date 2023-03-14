@@ -16,10 +16,16 @@ formTask.addEventListener("submit", (e) => {
   }
 });
 
-// Adds the HTML tasks to the array
+// Adiciona data-attributes aos elementos nativos do HTML
 const toDoItem = document.querySelectorAll(".to-do__item");
 
+let count = 0;
+
 toDoItem.forEach((item) => {
+  item.setAttribute("data-value", count);
+  count++;
+
+  // Adiciona os elementos nativos do HTML à matriz toDoList
   const toDo = {
     item: item.querySelector(".to-do__task").textContent,
     completed: item.querySelector(".to-do__complete").checked,
@@ -28,7 +34,7 @@ toDoItem.forEach((item) => {
   toDoList.push(toDo);
 });
 
-// Removes the HTML tasks in the array
+// Remove os elementos nativos do HTML da matriz toDoList
 const deleteBtns = document.querySelectorAll(".to-do__delete");
 
 deleteBtns.forEach((deleteBtn) => {
@@ -43,11 +49,21 @@ deleteBtns.forEach((deleteBtn) => {
       toDoList.splice(index, 1);
       listItem.remove();
       hr.remove();
-      updateTaskCount(); // Removes the excluded task from the count
+      updateTaskCount(); // Remove os elementos excluidos da contagem de tarefas
+
+      // Adiciona o novo data-attributes aos elementos restantes após uma exclusão
+      const remainingTasks = document.querySelectorAll(".to-do__item");
+      let count = 0;
+
+      remainingTasks.forEach((item) => {
+        item.setAttribute("data-value", count);
+        count++;
+      });
     }
   });
 });
 
+// Modifica o estado do checkbox e atuliza a contagem de elementos nativos do HTML
 const completeInputs = document.querySelectorAll(".to-do__complete");
 
 completeInputs.forEach((input) => {
@@ -59,7 +75,7 @@ completeInputs.forEach((input) => {
 
     if (index !== -1) {
       toDoList[index].completed = input.checked;
-      updateTaskCount(); // Change the state of a task and update the count
+      updateTaskCount(); //Modifica o estado e atualiza a contagem
     }
   });
 });
