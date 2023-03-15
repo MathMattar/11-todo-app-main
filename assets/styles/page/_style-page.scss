@@ -102,10 +102,11 @@ body {
         border-top-right-radius: .6rem;
         border-top-left-radius: .6rem;
         box-shadow: 0 .8rem 2.4rem .4rem hsla(0, 0%, 0%, 0.1);
-
+        
         .to-do__item {
             display: flex;
             justify-content: space-between;
+            border-bottom: 2px solid var(--border-divider);
             align-items: center;
             padding: 1.6rem 2rem;
 
@@ -177,12 +178,6 @@ body {
                     height: 1.2rem;
                 }
             }
-        }
-
-        hr {
-            width: 100%;
-            margin: unset;
-            border: 1px solid var(--border-divider);
         }
     }
 

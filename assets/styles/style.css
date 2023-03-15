@@ -178,6 +178,7 @@ body .to-do__list {
 body .to-do__list .to-do__item {
   display: flex;
   justify-content: space-between;
+  border-bottom: 2px solid var(--border-divider);
   align-items: center;
   padding: 1.6rem 2rem;
 }
@@ -243,11 +244,6 @@ body .to-do__list .to-do__item .to-do__delete {
 body .to-do__list .to-do__item .to-do__delete .to-do__delete--icon {
   width: 1.2rem;
   height: 1.2rem;
-}
-body .to-do__list hr {
-  width: 100%;
-  margin: unset;
-  border: 1px solid var(--border-divider);
 }
 body .to-do__tools .tools__set-one {
   display: flex;
