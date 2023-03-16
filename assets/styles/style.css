@@ -291,11 +291,11 @@ body .to-do__tools .tools__set-two .tools__filter {
   font-weight: 700;
   cursor: pointer;
 }
-body .to-do__tools .tools__set-two .tools__filter:focus {
-  color: var(--bright-blue);
-}
 body .to-do__tools .tools__set-two .tools__filter:hover {
   color: var(--text-hover);
+}
+body .to-do__tools .tools__set-two .active {
+  color: var(--bright-blue);
 }
 body footer h3 {
   color: var(--text-tools);

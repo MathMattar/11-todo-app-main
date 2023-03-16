@@ -102,7 +102,7 @@ body {
         border-top-right-radius: .6rem;
         border-top-left-radius: .6rem;
         box-shadow: 0 .8rem 2.4rem .4rem hsla(0, 0%, 0%, 0.1);
-        
+
         .to-do__item {
             display: flex;
             justify-content: space-between;
@@ -228,14 +228,16 @@ body {
                 font-weight: $w7;
                 cursor: pointer;
 
-                &:focus {
-                    color: var(--bright-blue);
-                }
-
                 &:hover {
                     color: var(--text-hover)
                 }
+
             }
+
+            .active {
+                color: var(--bright-blue);
+            }
+
         }
 
     }
