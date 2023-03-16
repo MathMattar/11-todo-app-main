@@ -1,0 +1,92 @@
+@import "../abstract/root";
+
+@media only screen and (min-width: 1400px) {
+
+    body {
+        padding: 7.8rem 45rem 5rem;
+
+        &.light-mode::before {
+            background: url(../images/bg-desktop-light.jpg) no-repeat;
+        }
+
+        &::before {
+            background: url(../images/bg-desktop-dark.jpg) no-repeat;
+        }
+
+        header {
+            margin-bottom: 4rem;
+
+            .title {
+                font-size: $title-desktop;
+            }
+        }
+
+        .to-do {
+            .to-do__form {
+                .to-do__task-send {
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    top: 2rem;
+                    left: 2.4rem;
+                }
+
+                .to-do__input {
+                    font-size: $task-desktop;
+                    height: 6.4rem;
+                    letter-spacing: 0.01em;
+                    padding: 2.4rem 7rem;
+                }
+            }
+
+            .to-do__list {
+                .to-do__item {
+                    .to-do__complete {
+                        width: 2.4rem;
+                        height: 2.4rem;
+
+                        &:checked {
+                            width: 2.4rem;
+                            height: 2.4rem;
+                        }
+                    }
+
+                    .to-do__task {
+                        font-size: $task-desktop;
+                        padding: 0 2.4rem 0 2.2rem;
+
+                        &:hover+.to-do__delete {
+                            display: block;
+                        }
+                    }
+
+
+                    .to-do__delete {
+                        display: none;
+                        width: 1.8rem;
+                        height: 1.8rem;
+
+                        .to-do__delete--icon {
+                            width: 1.8rem;
+                            height: 1.8rem;
+                        }
+                    }
+
+                }
+            }
+
+            .to-do__tools {
+                position: relative;
+
+                .tools__set-two {
+                    position: absolute;
+                    top: 0;
+                    left: calc(50% - (16.575rem/2));
+                    background-color: transparent;
+                    width: 16.575rem;
+                    border: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
