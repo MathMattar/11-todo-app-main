@@ -1,6 +1,9 @@
+// Busca a lista de tarefas no localStorage
 export function getToDoList() {
+  // Verifica se a lista já existe no localStorage, se não existir, cria um array vazio
   const toDo = JSON.parse(localStorage.getItem("toDoList")) || [];
 
+  // Define tarefas padrão que serão adicionadas caso não existam no armazenamento local
   const defaultTask0 = {
     id: 0,
     toDo: "Complete online JavaScript course",
@@ -32,6 +35,7 @@ export function getToDoList() {
     completed: false,
   };
 
+  // Se a lista estiver vazia, adiciona as tarefas padrão ao array toDo e salva no localStorage
   if (toDo.length === 0) {
     toDo.push(
       defaultTask0,
