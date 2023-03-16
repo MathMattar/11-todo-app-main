@@ -1,3 +1,4 @@
+import { getToDoList } from "./defaultTasks.js";
 import { renderToDoList } from "./newTasks.js";
 
 // Completar a tarefa
@@ -138,3 +139,27 @@ function filterTasks() {
 }
 
 filterTasks();
+
+const list = document.querySelector(".sortable");
+let toDo = JSON.parse(localStorage.getItem("toDoList")) || [];
+
+const dragAndDrop = new Sortable(list, {
+  animation: 150,
+  filter: "",
+  onEnd: function (e) {
+    const items = e.target.children;
+    toDo = [];
+
+    for (let i = 0; i < items.length; i++) {
+      const toDoText = items[i].querySelector("span").textContent;
+      const toDoCompleted = items[i].querySelector("input").checked;
+      const id = i;
+      items[i].setAttribute("data-value", id);
+      toDo.push({ id: id, todo: toDoText, completed: toDoCompleted });
+    }
+
+    localStorage.setItem("toDoList", JSON.stringify(toDo));
+
+    getToDoList();
+  },
+});

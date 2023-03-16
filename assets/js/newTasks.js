@@ -23,6 +23,8 @@ export function newTask() {
   index++;
 
   renderToDoList();
+  insertTask.focus();
+  insertTask.value = "";
 }
 
 // Renderizar a lista de tarefas
