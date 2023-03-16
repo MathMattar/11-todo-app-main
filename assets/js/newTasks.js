@@ -11,11 +11,12 @@ export function newTask() {
 
   let index = toDo.length;
 
-  // Cria uma nova tarefa com o texto da entrada e um ID único
+  // Cria uma nova tarefa com o texto do input e identificação única
   const newTask = {
     id: index,
     toDo: taskText,
     completed: false,
+    order: index,
   };
   // Adiciona a nova tarefa na lista de tarefas e atualiza o localStorage
   toDo.push(newTask);
@@ -27,11 +28,10 @@ export function newTask() {
   insertTask.value = "";
 }
 
-// Renderizar a lista de tarefas
 export function renderToDoList(filterOption = "all") {
   const toDo = JSON.parse(localStorage.getItem("toDoList")) || [];
 
-  // Lista vazia para armazenas as tarefas filtradas
+  // Lista vazia para armazenar as tarefas filtradas
   let filteredToDo = [];
 
   // Filtrar as tarefas com base na opção de filtro selecionado
@@ -48,6 +48,7 @@ export function renderToDoList(filterOption = "all") {
   filteredToDo.forEach((task, index) => {
     const taskItem = document.createElement("li");
     taskItem.classList.add("to-do__item");
+    taskItem.classList.add("to-do__drag");
     taskItem.setAttribute("data-value", index);
 
     taskItem.innerHTML = `

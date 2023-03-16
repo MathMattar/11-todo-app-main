@@ -7,9 +7,9 @@ export function completeTask() {
 
   completeButtons.forEach((completeButton) => {
     completeButton.addEventListener("change", (e) => {
-      const index = completeButton.parentNode.getAttribute("data-value"); // Pega o ID da tarefa a partir do atributo data-value do pai do botão
-      const toDo = JSON.parse(localStorage.getItem("toDoList")) || [];
-      const todoIndex = toDo.findIndex((todo) => todo.id === Number(index)); // Busca o índice da tarefa a partir do ID
+      const index = completeButton.parentNode.getAttribute("data-value"); // Obtém o ID da tarefa a partir do atributo data-value do pai do botão
+      const toDo = JSON.parse(localStorage.getItem("toDoList")) || []; // Obtém a lista de tarefas armazenada no localStorage ou cria uma lista vazia
+      const todoIndex = toDo.findIndex((todo) => todo.id === Number(index)); // Encontra o índice da tarefa a partir do ID
 
       // Se a tarefa existe no array, atualiza o status
       if (todoIndex > -1) {
@@ -33,7 +33,7 @@ export function excludeTask() {
       e.preventDefault();
 
       const index = deleteButton.parentNode.getAttribute("data-value"); // Pega o ID a partir do atributo data-value do pai
-      const toDo = JSON.parse(localStorage.getItem("toDoList")) || [];
+      const toDo = JSON.parse(localStorage.getItem("toDoList")) || []; // Obtém a lista de tarefas armazenada no localStorage ou cria uma lista vazia
       const filterToDo = toDo.filter((task) => task.id != index); // Filtra as tarefas que não possuem o ID selecionado e salva no localStorage
       localStorage.setItem("toDoList", JSON.stringify(filterToDo));
 
@@ -138,28 +138,31 @@ function filterTasks() {
   });
 }
 
-filterTasks();
-
 const list = document.querySelector(".sortable");
-let toDo = JSON.parse(localStorage.getItem("toDoList")) || [];
 
-const dragAndDrop = new Sortable(list, {
+Sortable.create(list, {
   animation: 150,
-  filter: "",
-  onEnd: function (e) {
-    const items = e.target.children;
-    toDo = [];
+  handle: ".to-do__drag",
+  onEnd: () => {
+    // Obtém a lista ordenada de tarefas
+    const taskList = Array.from(list.children).map((task, index) => {
+      // atualiza o atributo 'data-value' do elemento com a nova posição
+      task.setAttribute("data-value", index);
 
-    for (let i = 0; i < items.length; i++) {
-      const toDoText = items[i].querySelector("span").textContent;
-      const toDoCompleted = items[i].querySelector("input").checked;
-      const id = i;
-      items[i].setAttribute("data-value", id);
-      toDo.push({ id: id, todo: toDoText, completed: toDoCompleted });
-    }
+      return {
+        id: parseInt(task.getAttribute("data-value")),
+        toDo: task.querySelector(".to-do__task").innerText,
+        completed: task.querySelector(".to-do__complete").checked,
+        order: index,
+      };
+    });
 
-    localStorage.setItem("toDoList", JSON.stringify(toDo));
+    // Atualiza o LocalStorage com a nova ordem das tarefas
+    localStorage.setItem("toDoList", JSON.stringify(taskList));
 
-    getToDoList();
+    // Atualiza a exibição da lista
+    renderToDoList();
   },
 });
+
+filterTasks();
