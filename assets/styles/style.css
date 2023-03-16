@@ -225,6 +225,9 @@ body .to-do__list .to-do__item .to-do__task {
   width: 100%;
   padding: 0 1.2rem;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 body .to-do__list .to-do__item .to-do__task:hover {
   color: var(--text-hover);

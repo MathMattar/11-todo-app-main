@@ -17,6 +17,8 @@
     <title>To-do List</title>
 
     <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
+
+
 </head>
 
 <body>
@@ -33,61 +35,7 @@
             <input type="text" class="to-do__input" id="insert-task" placeholder="Create a new to-do...">
         </form>
 
-        <ul class="to-do__list" id="to-do-list">
-            <!--<li class="to-do__item">
-                <input type="checkbox" class="to-do__complete" id="complete" checked>
-                <span class="to-do__task">Complete online JavaScript course</span>
-                <button type="button" class="to-do__delete" id="exclude">
-                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__delete--icon">
-                </button>
-            </li>
-            
-             <li class="to-do__item">
-                <input type="checkbox" class="to-do__complete" id="complete">
-                <span class="to-do__task">Jog around the park 3x</span>
-                <button type="button" class="to-do__delete" id="exclude">
-                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__delete--icon">
-                </button>
-            </li>
-            
-
-            <li class="to-do__item">
-                <input type="checkbox" class="to-do__complete">
-                <span class="to-do__task">10 minutes meditation</span>
-                <button class="to-do__delete" id="clearTask">
-                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__delete--icon">
-                </button>
-            </li>
-            
-
-
-            <li class="to-do__item">
-                <input type="checkbox" class="to-do__complete">
-                <span class="to-do__task">Read for 1 hour</span>
-                <button class="to-do__delete" id="clearTask">
-                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__delete--icon">
-                </button>
-            </li>
-            
-
-
-            <li class="to-do__item">
-                <input type="checkbox" class="to-do__complete">
-                <span class="to-do__task">Pick up groceries</span>
-                <button class="to-do__delete" id="clearTask">
-                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__delete--icon">
-                </button>
-            </li>
-            
-
-
-            <li class="to-do__item">
-                <input type="checkbox" class="to-do__complete">
-                <span class="to-do__task">Complete Todo App on Frontend Mentor</span>
-                <button class="to-do__delete" id="clearTask">
-                    <img src="./assets/images/icon-cross.svg" alt="Close icon" class="to-do__delete--icon">
-                </button>
-            </li>-->
+        <ul class="to-do__list sortable" id="to-do-list">
         </ul>
 
         <section class="to-do__tools">
@@ -108,6 +56,7 @@
         <h3>Drag and drop to reorder list</h3>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
     <script src="./assets/js/switchThema.js"></script>
     <script src="./assets/js/toDoList.js" type="module"></script>
 

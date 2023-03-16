@@ -154,6 +154,7 @@ body {
                 width: 100%;
                 padding: 0 1.2rem;
                 cursor: pointer;
+                user-select: none;
 
                 &:hover {
                     color: var(--text-hover);
