@@ -22,7 +22,7 @@ Esta é uma solução para o desafio [Todo app de Frontend Mentor](https://www.f
 
 <br>
 
-Este projeto consiste em uma página de cadastro de cartão fictícia, que conta com um design responsivo e validação do formulário. Durante o preenchimento dos dados, eles são atualizados automaticamente na imagem representativa.
+xxxx
 
 Os usuários devem ser capazes de:
 
