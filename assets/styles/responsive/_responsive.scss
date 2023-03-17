@@ -3,14 +3,18 @@
 @media only screen and (min-width: 1400px) {
 
     body {
-        padding: 7.8rem 45rem 5rem;
+        padding: 7.8rem 31.25% 5rem;
 
         &.light-mode::before {
-            background: url(../images/bg-desktop-light.jpg) no-repeat;
+            background: url(../images/bg-desktop-light.jpg) no-repeat center top;
+            background-size: 100%;
+            max-height: 30rem;
         }
 
         &::before {
-            background: url(../images/bg-desktop-dark.jpg) no-repeat;
+            background: url(../images/bg-desktop-dark.jpg) no-repeat center top;
+            background-size: 100%;
+            max-height: 40rem;
         }
 
         header {
@@ -40,6 +44,8 @@
 
             .to-do__list {
                 .to-do__item {
+                    padding: 2.4rem 2.4rem 2.2rem;
+
                     .to-do__complete {
                         width: 2.4rem;
                         height: 2.4rem;
@@ -52,7 +58,6 @@
 
                     .to-do__task {
                         font-size: $task-desktop;
-                        padding: 0 2.4rem 0 2.2rem;
 
                         &:hover+.to-do__delete {
                             display: block;
