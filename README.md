@@ -22,7 +22,7 @@ Esta é uma solução para o desafio [Todo app de Frontend Mentor](https://www.f
 
 <br>
 
-xxxx
+Aplicativo para gerenciamento de tarefas que permite adicionar, editar e remover tarefas. Também possui um recurso de filtro que permite visualizar tarefas concluídas e não concluídas separadamente. Com este aplicativo, você pode organizar facilmente suas tarefas diárias de forma eficiente e prática.
 
 Os usuários devem ser capazes de:
 
