@@ -24,15 +24,17 @@
 <body>
     <header>
         <h1 class="title">Todo</h1>
-        <button class="thema__switch" id="switch">
+        <button class="thema__switch" id="switch" aria-label="Switching between themes">
             <img src="./assets/images/icon-sun.svg" alt="Sun icon" class="hema__icon" id="iconThema">
         </button>
     </header>
 
     <main class="to-do">
         <form class="to-do__form" id="form-task" autocomplete="off">
-            <button type="submit" class="to-do__task-send" id="send-task"></button>
-            <input type="text" class="to-do__input" id="insert-task" placeholder="Create a new to-do...">
+            <button type="submit" class="to-do__task-send" id="send-task" aria-label="Add new task"></button>
+            <label for="insert-task">
+                <input type="text" class="to-do__input" id="insert-task" placeholder="Create a new to-do...">
+            </label>
         </form>
 
         <ul class="to-do__list sortable" id="to-do-list">
@@ -41,19 +43,23 @@
         <section class="to-do__tools">
             <div class="tools__set-one">
                 <span class="tools__task-count" id="task-count"></span>
-                <button class="tools__clear-complete" id="clear-complete">Clear Completed</button>
+                <button class="tools__clear-complete" id="clear-complete" aria-label="Excluding Completed Tasks">Clear
+                    Completed</button>
             </div>
             <div class="tools__set-two">
-                <button type="button" class="tools__filter" id="filter-all">All</button>
-                <button type="button" class="tools__filter" id="filter-active">Active</button>
-                <button type="button" class="tools__filter" id="filter-completed">Completed</button>
+                <button type="button" class="tools__filter" id="filter-all"
+                    aria-label="Filter tasks. All tasks">All</button>
+                <button type="button" class="tools__filter" id="filter-active"
+                    aria-label="Filter tasks. Active tasks">Active</button>
+                <button type="button" class="tools__filter" id="filter-completed"
+                    aria-label="Filter tasks. Completed tasks">Completed</button>
             </div>
         </section>
 
     </main>
 
     <footer>
-        <h3>Drag and drop to reorder list</h3>
+        <h2>Drag and drop to reorder list</h2>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
