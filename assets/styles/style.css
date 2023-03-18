@@ -81,8 +81,8 @@ html {
 body {
   position: relative;
   background: var(--background);
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   padding: 4.8rem 6.4% 6.9rem;
 }
 body.light-mode::before {
@@ -190,7 +190,7 @@ body .to-do__list .to-do__item {
   justify-content: space-between;
   border-bottom: 2px solid var(--border-divider);
   align-items: center;
-  padding: 1.6rem 2rem;
+  padding: 1.6rem 2rem 1.4rem;
 }
 body .to-do__list .to-do__item .to-do__complete {
   -webkit-appearance: none;
@@ -266,7 +266,7 @@ body .to-do__tools .tools__set-one {
   border-bottom-left-radius: 0.6rem;
   border-bottom-right-radius: 0.6rem;
   box-shadow: 0 2.4rem 2.4rem 0.4rem hsla(0, 0%, 0%, 0.1);
-  padding: 1.8rem 2rem 2rem;
+  padding: 1.7rem 2rem;
   margin-bottom: 1.6rem;
 }
 body .to-do__tools .tools__set-one .tools__task-count {
@@ -281,6 +281,7 @@ body .to-do__tools .tools__set-one .tools__clear-complete {
   color: var(--text-tools);
   font-size: 1.2rem;
   letter-spacing: -0.015em;
+  padding: unset;
   cursor: pointer;
 }
 body .to-do__tools .tools__set-one .tools__clear-complete:hover {
@@ -292,7 +293,7 @@ body .to-do__tools .tools__set-two {
   background-color: var(--background-to-do-list);
   border: none;
   border-radius: 0.6rem;
-  padding: 1.8rem 0;
+  padding: 1.6rem 0;
   box-shadow: 0 0.4rem 2.4rem 0.4rem hsla(0, 0%, 0%, 0.1);
 }
 body .to-do__tools .tools__set-two .tools__filter {
@@ -310,12 +311,12 @@ body .to-do__tools .tools__set-two .tools__filter:hover {
 body .to-do__tools .tools__set-two .active {
   color: var(--bright-blue);
 }
-body footer h3 {
+body footer h2 {
   color: var(--text-tools);
   font-size: 1.4rem;
   letter-spacing: -0.0175em;
   text-align: center;
-  margin: 4.3rem auto 6.9rem;
+  margin: 4.3rem auto 0;
 }
 
 :root {
@@ -367,8 +368,8 @@ body footer h3 {
     font-size: 4rem;
   }
   body .to-do .to-do__form .to-do__task-send {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.6rem;
+    height: 2.6rem;
     top: 2rem;
     left: 2.4rem;
   }
@@ -376,21 +377,27 @@ body footer h3 {
     font-size: 1.8rem;
     height: 6.4rem;
     letter-spacing: 0.01em;
-    padding: 2.4rem 7rem;
+    padding: 2.4rem 7rem 2.2rem;
+    margin-bottom: 2.4rem;
   }
   body .to-do .to-do__list .to-do__item {
-    padding: 2.4rem 2.4rem 2.2rem;
+    padding: 1.9rem 2.2rem 1.7rem;
   }
   body .to-do .to-do__list .to-do__item .to-do__complete {
-    width: 2.4rem;
-    height: 2.4rem;
+    min-width: 2.6rem;
+    min-height: 2.6rem;
+    max-width: 2.6rem;
+    max-height: 2.6rem;
   }
   body .to-do .to-do__list .to-do__item .to-do__complete:checked {
-    width: 2.4rem;
-    height: 2.4rem;
+    min-width: 2.6rem;
+    min-height: 2.6rem;
+    max-width: 2.6rem;
+    max-height: 2.6rem;
   }
   body .to-do .to-do__list .to-do__item .to-do__task {
     font-size: 1.8rem;
+    padding: 0 0 0 2.3rem;
   }
   body .to-do .to-do__list .to-do__item .to-do__task:hover + .to-do__delete {
     display: block;
@@ -407,6 +414,10 @@ body footer h3 {
   body .to-do .to-do__tools {
     position: relative;
   }
+  body .to-do .to-do__tools .tools__set-one {
+    margin-bottom: unset;
+    padding: 1.8rem 2.4rem 1.7rem;
+  }
   body .to-do .to-do__tools .tools__set-two {
     position: absolute;
     top: 0;
@@ -415,5 +426,8 @@ body footer h3 {
     width: 16.575rem;
     border: none;
     box-shadow: none;
+  }
+  footer h2 {
+    margin: 5.2 auto 0;
   }
 }/*# sourceMappingURL=style.css.map */
